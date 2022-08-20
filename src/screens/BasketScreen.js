@@ -37,7 +37,7 @@ const BasketScreen = () => {
   }, [items]);
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <SafeAreaView className="flex-1 bg-white pt-5">
       <View className="flex-1 bg-gray-100">
         <View className="p-5 border-b border-[#00CCBB] bg-white shadow-xs">
           <View>
@@ -60,7 +60,7 @@ const BasketScreen = () => {
             source={{ uri: "https://links.papareact.com/wru" }}
             className="h-7 w-7 bg-gray-300 p-4 rounded-full"
           />
-          <Text className="flex-1">Deliver in 50-75 min</Text>
+          <Text className="flex-1">Deliver in 45-55 min</Text>
           <TouchableOpacity>
             <Text className="text-[#00CCBB]">Change</Text>
           </TouchableOpacity>
@@ -117,7 +117,10 @@ const BasketScreen = () => {
             </Text>
           </View>
 
-          <TouchableOpacity className="rounded-lg bg-[#00CCBB] p-4">
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Preparing Order")}
+            className="rounded-lg bg-[#00CCBB] p-4"
+          >
             <Text className="text-center text-white text-xl font-bold">
               Place Order
             </Text>

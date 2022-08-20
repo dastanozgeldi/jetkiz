@@ -28,7 +28,7 @@ export default {
     {
       name: "long",
       type: "number",
-      title: "Restaurant Longtitude",
+      title: "Restaurant Longitude",
     },
     {
       name: "address",
