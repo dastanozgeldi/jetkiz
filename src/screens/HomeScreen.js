@@ -5,6 +5,7 @@ import {
   Image,
   TextInput,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -64,7 +65,9 @@ const HomeScreen = () => {
           </Text>
         </View>
 
-        <UserIcon size={35} color="#00CCBB" />
+        <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+          <UserIcon size={35} color="#00CCBB" />
+        </TouchableOpacity>
       </View>
       {/* Search */}
       <View className="flex-row items-center gap-2 pb-2 mx-2">
