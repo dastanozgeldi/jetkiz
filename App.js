@@ -9,6 +9,7 @@ import BasketScreen from "./src/screens/BasketScreen";
 import PreparingOrderScreen from "./src/screens/PreparingOrderScreen";
 import DeliveryScreen from "./src/screens/DeliveryScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
+import WhoDevelopedApp from "./src/screens/WhoDevelopedApp";
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +40,11 @@ export default function App() {
               name="Profile"
               component={ProfileScreen}
               options={{ presentation: "fullScreenModal", headerShown: false }}
+            />
+            <Stack.Screen
+              name="Who Developed App"
+              component={WhoDevelopedApp}
+              options={{ presentation: "modal" }}
             />
           </Stack.Navigator>
         </TailwindProvider>

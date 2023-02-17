@@ -66,7 +66,7 @@ const HomeScreen = () => {
         </View>
 
         <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-          <UserIcon size={35} color="#00CCBB" />
+          <UserIcon size={32} color="#00CCBB" />
         </TouchableOpacity>
       </View>
       {/* Search */}

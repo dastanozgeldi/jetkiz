@@ -39,13 +39,13 @@ const ProfileScreen = () => {
               uri: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80",
             }}
           />
-          <Text className="text-2xl font-semibold">Мұрат Әбділдә</Text>
+          <Text className="text-2xl font-semibold">Qabyl Adil</Text>
         </View>
       </View>
 
       {/* About App */}
       <View className="my-6 space-y-4">
-        <Text className="text-xl font-bold">About Jetkiz</Text>
+        <Text className="text-xl font-semibold">About Jetkiz</Text>
 
         {/* Privacy Policy */}
         <View className="flex-row items-center justify-between">
@@ -57,10 +57,13 @@ const ProfileScreen = () => {
         </View>
         {/* App Developer */}
         <View className="flex-row items-center justify-between">
-          <View className="flex-row items-center gap-2">
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Who Developed App")}
+            className="flex-row items-center gap-2"
+          >
             <UserIcon color={"#00CCBB"} width={28} height={28} />
             <Text className="text-lg">Who developed the app?</Text>
-          </View>
+          </TouchableOpacity>
           <ChevronRightIcon color={"#00CCBB"} />
         </View>
         {/* Jetkiz Premium */}
