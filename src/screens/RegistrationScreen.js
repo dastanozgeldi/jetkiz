@@ -7,7 +7,6 @@ import {
   Alert,
   SafeAreaView,
   View,
-  Button,
 } from "react-native";
 import { createUser } from "../sanity";
 
