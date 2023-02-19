@@ -11,4 +11,20 @@ const client = sanityClient({
 const builder = imageUrlBuilder(client);
 export const urlFor = (source) => builder.image(source);
 
+export const createUser = async (name, password) => {
+  try {
+    // Create a new user document in Sanity with the given name and password
+    const response = await client.create({
+      _type: "user",
+      name,
+      password,
+    });
+
+    return true; // Return true if the user was successfully created
+  } catch (error) {
+    console.error(error);
+    return false; // Return false if the user could not be created
+  }
+};
+
 export default client;
