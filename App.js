@@ -11,6 +11,8 @@ import DeliveryScreen from "./src/screens/DeliveryScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import WhoDevelopedApp from "./src/screens/WhoDevelopedApp";
 import CategoryScreen from "./src/screens/CategoryScreen";
+import RegistrationScreen from "./src/screens/RegistrationScreen";
+import LoginScreen from "./src/screens/LoginScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,7 +21,9 @@ export default function App() {
     <NavigationContainer>
       <Provider store={store}>
         <TailwindProvider>
-          <Stack.Navigator>
+          <Stack.Navigator initialRouteName="Registration">
+            <Stack.Screen name="Registration" component={RegistrationScreen} />
+            <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Restaurant" component={RestaurantScreen} />
             <Stack.Screen name="Category" component={CategoryScreen} />
