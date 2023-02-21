@@ -6,11 +6,11 @@ import {
   TextInput,
   ScrollView,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
-  AdjustmentsIcon,
   ChevronDownIcon,
   SearchIcon,
   UserIcon,
@@ -21,7 +21,25 @@ import sanityClient from "../sanity";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
+  const [query, setQuery] = useState();
+  const [searchResults, setSearchResults] = useState([]);
   const [featuredCategories, setFeaturedCategories] = useState([]);
+
+  const search = async (term) => {
+    const query = `*[[name, short_description] match "${term}"]`;
+    const results = await sanityClient.fetch(query);
+
+    return results;
+  };
+
+  const handleSearch = async () => {
+    const results = await search(query);
+    if (query !== "" && !results.length > 0) {
+      Alert.alert(`No results found for "${query}"`);
+    }
+    setSearchResults(results);
+    // display results in your app
+  };
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -70,15 +88,23 @@ const HomeScreen = () => {
         </TouchableOpacity>
       </View>
       {/* Search */}
-      <View className="flex-row items-center gap-2 pb-2 mx-2">
-        <View className="flex-row items-center gap-2 flex-1 bg-gray-200 p-3 rounded-xl">
-          <SearchIcon color="gray" size={20} />
-          <TextInput
-            placeholder="Restaurants and cuisines"
-            keyboardType="default"
-          />
+      <View className="flex-row items-center p-2 mx-2">
+        <View className="flex-row items-center flex-1">
+          <View className="flex-row items-center gap-2 flex-1 bg-gray-200 h-[50px] p-3 rounded-l-xl">
+            <SearchIcon color="gray" size={20} />
+            <TextInput
+              placeholder="Restaurants and cuisines"
+              value={query}
+              onChangeText={setQuery}
+            />
+          </View>
+          <TouchableOpacity
+            onPress={handleSearch}
+            className="h-[50px] bg-teal-500 p-3 gap-2 rounded-r-xl"
+          >
+            <Text>🚀</Text>
+          </TouchableOpacity>
         </View>
-        <AdjustmentsIcon color="#00CCBB" />
       </View>
 
       {/* Body */}
@@ -86,15 +112,26 @@ const HomeScreen = () => {
         {/* Categories (carousel) */}
         <Categories />
 
-        {/* Featured Rows */}
-        {featuredCategories?.map((category) => (
-          <FeaturedRow
-            key={category._id}
-            id={category._id}
-            title={category.name}
-            description={category.short_description}
-          />
-        ))}
+        {searchResults.length > 0
+          ? searchResults.map((result) => (
+              <View key={result.name}>
+                <View className="mt-4 flex-row items-center justify-between px-4">
+                  <Text className="font-bold text-xl">{result.name}</Text>
+                </View>
+
+                <Text className="text-xs text-gray-500 px-4">
+                  {result.short_description}
+                </Text>
+              </View>
+            ))
+          : featuredCategories?.map((category) => (
+              <FeaturedRow
+                key={category._id}
+                id={category._id}
+                title={category.name}
+                description={category.short_description}
+              />
+            ))}
       </ScrollView>
     </SafeAreaView>
   );
