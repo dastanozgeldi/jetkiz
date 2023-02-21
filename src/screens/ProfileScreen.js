@@ -18,20 +18,22 @@ const ProfileScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView className="mx-4">
+    <SafeAreaView className="mx-4 pt-7">
       {/* Navbar */}
-      <View className="relative mb-10">
+      <View className="relative mb-10 flex-row items-center">
         <TouchableOpacity
           onPress={navigation.goBack}
-          className="absolute bg-gray-100 rounded-full p-2"
+          className="z-10 absolute bg-gray-100 rounded-full p-2"
         >
           <ArrowLeftIcon color={"#00CCBB"} size={20} />
         </TouchableOpacity>
+        <Text className="text-2xl font-bold text-center w-full">
+          Ваш профиль
+        </Text>
       </View>
 
       {/* User Details */}
       <View className="space-y-4">
-        <Text className="text-3xl font-bold">Ваш профиль</Text>
         <View className="items-center gap-2">
           <Image
             className="w-32 h-32 rounded-full"
