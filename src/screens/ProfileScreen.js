@@ -48,13 +48,16 @@ const ProfileScreen = () => {
         <Text className="text-xl font-semibold">About Jetkiz</Text>
 
         {/* Privacy Policy */}
-        <View className="flex-row items-center justify-between">
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Privacy Policy")}
+          className="flex-row items-center justify-between"
+        >
           <View className="flex-row items-center gap-2">
             <LockClosedIcon color={"#00CCBB"} width={28} height={28} />
             <Text className="text-lg">Privacy policy</Text>
           </View>
           <ChevronRightIcon color={"#00CCBB"} />
-        </View>
+        </TouchableOpacity>
         {/* App Developer */}
         <TouchableOpacity
           onPress={() => navigation.navigate("Who Developed App")}
