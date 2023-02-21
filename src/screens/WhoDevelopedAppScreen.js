@@ -1,6 +1,6 @@
 import { Image, Text, View } from "react-native";
 
-const WhoDevelopedApp = () => {
+const WhoDevelopedAppScreen = () => {
   return (
     <View className="space-y-4">
       <View className="items-center justify-center my-6 space-y-4">
@@ -29,4 +29,4 @@ const WhoDevelopedApp = () => {
   );
 };
 
-export default WhoDevelopedApp;
+export default WhoDevelopedAppScreen;

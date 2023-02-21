@@ -9,10 +9,11 @@ import BasketScreen from "./src/screens/BasketScreen";
 import PreparingOrderScreen from "./src/screens/PreparingOrderScreen";
 import DeliveryScreen from "./src/screens/DeliveryScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
-import WhoDevelopedApp from "./src/screens/WhoDevelopedApp";
+import WhoDevelopedAppScreen from "./src/screens/WhoDevelopedAppScreen";
 import CategoryScreen from "./src/screens/CategoryScreen";
 import RegistrationScreen from "./src/screens/RegistrationScreen";
 import LoginScreen from "./src/screens/LoginScreen";
+import JetkizPremiumScreen from "./src/screens/JetkizPremiumScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -49,7 +50,12 @@ export default function App() {
             />
             <Stack.Screen
               name="Who Developed App"
-              component={WhoDevelopedApp}
+              component={WhoDevelopedAppScreen}
+              options={{ presentation: "modal" }}
+            />
+            <Stack.Screen
+              name="Jetkiz Premium"
+              component={JetkizPremiumScreen}
               options={{ presentation: "modal" }}
             />
           </Stack.Navigator>

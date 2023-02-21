@@ -56,24 +56,27 @@ const ProfileScreen = () => {
           <ChevronRightIcon color={"#00CCBB"} />
         </View>
         {/* App Developer */}
-        <View className="flex-row items-center justify-between">
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Who Developed App")}
-            className="flex-row items-center gap-2"
-          >
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Who Developed App")}
+          className="flex-row items-center justify-between"
+        >
+          <View className="flex-row items-center gap-2">
             <UserIcon color={"#00CCBB"} width={28} height={28} />
             <Text className="text-lg">Who developed the app?</Text>
-          </TouchableOpacity>
+          </View>
           <ChevronRightIcon color={"#00CCBB"} />
-        </View>
+        </TouchableOpacity>
         {/* Jetkiz Premium */}
-        <View className="flex-row items-center justify-between">
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Jetkiz Premium")}
+          className="flex-row items-center justify-between"
+        >
           <View className="flex-row items-center gap-2">
             <RewindIcon color={"#00CCBB"} width={28} height={28} />
             <Text className="text-lg">Jetkiz Premium</Text>
           </View>
           <ChevronRightIcon color={"#00CCBB"} />
-        </View>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
