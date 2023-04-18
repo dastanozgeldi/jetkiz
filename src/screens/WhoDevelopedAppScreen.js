@@ -9,7 +9,7 @@ const WhoDevelopedAppScreen = () => {
           source={require("../assets/developer.png")}
         />
         <View>
-          <Text className="font-semibold text-2xl">私の名前わDastanです</Text>
+          <Text className="font-semibold text-2xl">私の名前はDastanです</Text>
           <Text>я не знаю японский, но люблю футбол</Text>
         </View>
       </View>
